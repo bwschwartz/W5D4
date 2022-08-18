@@ -9,12 +9,12 @@
 #  updated_at :datetime         not null
 #
 class Enrollment < ApplicationRecord
-  has_many(
+  belongs_to(
     :student,
     class_name: 'Enrollment',
     foreign_key: :student_id,
     primary_key: :id
-  )
+
 
   belongs_to(
     :course,
