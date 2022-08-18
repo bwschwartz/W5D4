@@ -11,16 +11,10 @@ class User < ApplicationRecord
   has_many(
     :enrollments,
     class_name: 'Enrollment',
-    foreign_key: :enrollment_id,
+    foreign_key: :student_id,
     primary_key: :id
   )
 
-  has_many(
-    :enrolled_courses,
-    class_name: 'Course',
-    foreign_key: :course_id,
-    primary_key: :id)
-
-  has_many :courses, through: :enrollments, source: :users
+  has_many :enrolled_students, through: :enrollments, source: :users
 
 end
